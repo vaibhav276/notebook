@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'notebook';
+  items = [{
+    title: 'Essays',
+    href: '/essays'
+  }, {
+    title: 'Book Notes',
+    href: '/booknotes'
+  }];
+
+  title: string = 'Notebook';
+  home: string = 'Home';
 }
