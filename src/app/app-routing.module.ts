@@ -9,7 +9,7 @@ const routes: Routes = [
         return {
           consumed: url,
           posParams: {
-            path: new UrlSegment(url.join('/'), {})
+            path: new UrlSegment(url.slice(1).join('/'), {})
           }
         }
       }

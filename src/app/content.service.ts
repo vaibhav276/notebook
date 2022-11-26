@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ContentService {
 
-  contentLocation: string = 'assets/content';
-  manifestLocation: string = this.contentLocation + '/manifest.json';
+  contentLocation: string = 'assets/content/';
+  manifestLocation: string = this.contentLocation + 'manifest.json';
 
   constructor(
     private http: HttpClient
@@ -15,6 +15,12 @@ export class ContentService {
 
   getManifest() {
     return this.http.get<Manifest>(this.manifestLocation);
+  }
+
+  getMarkdownContent(path: string) {
+    return this.http.get(this.contentLocation + path, {
+      responseType: 'text'
+    });
   }
 }
 
