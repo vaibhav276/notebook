@@ -1,0 +1,14 @@
+{
+    "title": "Notebook",
+    "home": "Home",
+    "navigation": [
+        {
+            "title": "Essays",
+            "path": "content/essays/index.md"
+        },
+        {
+            "title": "Book Notes",
+            "path": "content/book-notes/index.md"
+        }
+    ]
+}
