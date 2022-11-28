@@ -5,7 +5,7 @@ import { ContentComponent } from './content/content.component';
 const routes: Routes = [
   {
     matcher: (url) => {
-      if (url[0].path === 'content') {
+      if (url.length >= 1 && url[0].path === '~') {
         return {
           consumed: url,
           posParams: {

@@ -4,11 +4,11 @@
     "navigation": [
         {
             "title": "Essays",
-            "path": "content/essays/index.md"
+            "path": "~/Essays/index.md"
         },
         {
             "title": "Book Notes",
-            "path": "content/book-notes/index.md"
+            "path": "~/Book_Notes/index.md"
         }
     ]
 }

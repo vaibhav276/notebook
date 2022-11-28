@@ -7,16 +7,20 @@ import { ContentService, Manifest } from '../content.service';
   styleUrls: ['./top-navbar.component.css']
 })
 export class TopNavbarComponent implements OnInit {
+  manifestLoaded: Promise<boolean> | undefined;
   manifest!: Manifest;
 
   constructor( private contentService: ContentService) { }
 
   ngOnInit(): void {
     this.contentService.getManifest()
-    .subscribe((data: Manifest) => this.manifest = {
-      title: data.title,
-      home: data.home,
-      navigation: data.navigation
-    });
+      .subscribe((data: Manifest) => {
+        this.manifest = {
+          title: data.title,
+          home: data.home,
+          navigation: data.navigation
+        };
+        this.manifestLoaded = Promise.resolve(true);
+      });
   }
 }
