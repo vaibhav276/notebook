@@ -1,4 +1,10 @@
 <div class="container p-5">
-    <p>{{ path }} </p>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li *ngFor="let c of crumbs" class="breadcrumb-item active" aria-current="page"> 
+                <a href="{{ c.path }}"> {{ c.title }} </a>
+            </li>
+        </ol>
+    </nav>
     <p [innerHTML]="content"></p>
 </div>

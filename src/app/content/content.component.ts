@@ -12,7 +12,7 @@ import { ContentService } from '../content.service';
 })
 export class ContentComponent implements OnInit {
 
-  path!: string | null;
+  crumbs: {title: string, path: string}[] = [];
   content!: SafeHtml;
 
   constructor(
@@ -21,13 +21,26 @@ export class ContentComponent implements OnInit {
     private domSanitizer: DomSanitizer
     ) {
     route.params.subscribe(val => {
-      this.path = val['path'];
+      let path = val['path'];
 
-      if (this.path != null && this.path.match(/md$/)) {
-        contentService.getMarkdownContent(this.path)
+      if (path != null && path.match(/md$/)) {
+        contentService.getMarkdownContent(path)
           .subscribe((data: string) => 
-            this.content = domSanitizer.bypassSecurityTrustHtml(marked.parse(data).replaceAll('#', '%23'))
+            this.content = domSanitizer.bypassSecurityTrustHtml(marked.parse(data))
             );
+
+        let prefix = '~/';
+        this.crumbs = [];
+        path.split('/').forEach((s: string) => {
+          let s1 = s;
+          s1 = prefix + s1 + '/';
+          prefix = s1;
+          this.crumbs.push({
+            title: s.replaceAll('_', ' '),
+            path: s1 + 'index.md'
+          });
+        });
+        this.crumbs.pop();
       } else {
         this.content = 'No content';
       }
