@@ -1,7 +1,7 @@
 <div class="container p-5">
-    <nav aria-label="breadcrumb">
+    <nav *ngIf="crumbs && crumbs.length > 0" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li *ngFor="let c of crumbs" class="breadcrumb-item active" aria-current="page"> 
+            <li *ngFor="let c of crumbs" class="breadcrumb-item active" aria-current="page">
                 <a href="{{ c.path }}"> {{ c.title }} </a>
             </li>
         </ol>

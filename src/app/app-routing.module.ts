@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, UrlSegment } from '@angular/router';
 import { ContentComponent } from './content/content.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
       return null;
     },
     component: ContentComponent
-  }
+  },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({
