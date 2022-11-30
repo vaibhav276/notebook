@@ -1,10 +1,12 @@
-<div class="container p-5">
-    <nav *ngIf="crumbs && crumbs.length > 0" aria-label="breadcrumb">
+<div class="container fixed-top p-5">
+    <nav class="shadow" *ngIf="crumbs && crumbs.length > 0" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li *ngFor="let c of crumbs" class="breadcrumb-item active" aria-current="page">
                 <a href="{{ c.path }}"> {{ c.title }} </a>
             </li>
         </ol>
     </nav>
+</div>
+<div class="container p-5">
     <p [innerHTML]="content"></p>
 </div>
